@@ -4,7 +4,7 @@ import torch
 
 from pathlib import Path
 
-from utils.eval_utils import generate, SUPPORTED_DECODING_STRATEGIES
+from utils.inference_utils import generate, SUPPORTED_DECODING_STRATEGIES
 from utils.model_utils import load_model
 
 

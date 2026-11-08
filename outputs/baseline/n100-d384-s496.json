@@ -1,0 +1,11 @@
+{
+  "n": 100,
+  "d": 384,
+  "training-data-path": "data/datasets/shakespeare/output.txt",
+  "seeds": [
+    496
+  ],
+  "max-f": 0.0798611111111111,
+  "best-fit-prompt": "plex, sir, is a\ngood tripping measure, or the bells of Saint Bennet,\nsir, may put you in mind--one, two, three.\n\nORSINO  You can fool no more money out of me at this\nthrow. If you will let your lady know I am here to\nspeak with her, and bring her along with you, it\nmay awake my bounty further.\n\nFOOL  Marry, sir, lullaby to your bounty till I come\nagain. I go, sir, but I would not h",
+  "best-fit-prompt-output": "i\ngkreusp pIa gaopn itt ecraops-.---AH ,soael  iGnnoor.\n\n\nPYAONN I  hPienrcye ?g oLodn oJfef utsttarnde!r\n\n\nNPUURLDL\nEWvhe  mta tahk eynec,r ytohu.g\n Y OtRhEyL Eidtoo ,s ogtltaartm.e\nd\nasski niogneed! \nYEORRK \n F rtiulreidoompse,l stirlrsi,o rtoelsu mwearriye\ndaiglheadd eiltyh apnpiann esnttaenntc,. \nNKUINNGE R I  awnoerf uhnetreeart sbouwg gtuomuesd atn\ngSrIiCcH \nPIrS TLRADY  PAeGtEhRe,l esxe caorn eanreosfluet, \nn\neYso uass eMvtey ,sloiwne slteerr  cboyo'nse  tmhea twoi\nnAont.h\ne\nxEcnudreedd?s\n \n E Ssoeo ncoamtoarl,y  IA csheodr;e rtahiionnesss. \nCKUINNGE L O ,t otuhc amnb lteirse'ds  tyhroinlsy\n.W\nh\nyRoiucnheasdeonm euaglheardesds ,a nmoyc,i naombeirc.l\nyHooudn etuer scoars !i satiisch edvgievro\nuHptliuss  mmoords  sbtuaerd;  mboest  tthoiscarrrioens\n A  fguels  amtariiceo naotthhe  wmhaenn etxetrs.\n\nAPNEDRIUCSE \n W AnNtEiRsI\nTWheanr ytehn eavreys  aInT osfwiatreds ;c\noFuFnsi nheierss  oqfuailrss,,  baesutsw,e\ndArUimseelr,,  dkionng, \nbReapmsi,t its eixgteedm ebatrtiseg.e\n\n\nNTEAASL\nALnMcAON E LMiAs\n T hiald.r  BAlStEaS\n\nADnReAsG Abroialn,e shaelfeull yfooold abnoeks..\n\n\nCARTDEIRGSE\nESrwiinngg lmiasneeds  ysocuirtss,.  S'imc\nutntoo "
+}

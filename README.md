@@ -3,6 +3,19 @@ Evolving character-level prompts to make a 4M Shakespeare Transformer output sym
 
 This project utilizes the models trained from the [Transformer Playground](https://github.com/xiaoxispace/transformer-playground) project. The checkpoint to use is the model that achieves the minimum validation loss, specifically the model with 384 context size and trained with `3e-5` learning rate.
 
+
+# Experiments
+
+## Baseline
+
+The first baseline to compare is the proportion of nonspace symbols in the dataset. The proportion is approximately 4.5%. The result is calculated by executing `python baseline_prompt.py` and is stored in `outputs/symbol-proportion.json`. 
+
+Another baseline is how many nonspace symbols does the model generate given the text input in the dataset. `baseline_prompt.py` also calculates this by sampling the dataset 100 times and return the prompt that leads to the most nonspace symbol output. The experiment result is stored in `outputs/baseline/n100-d384-s496.json`. 
+
+## Uniform Sampling
+
+An improved approach than sampling the dataset is to sample the vocabulary. The sampling can be done in the entire vocabulary space or only the nonspace vocabulary space. The later tends to assume more symbols in the prompt will cause the model to generate more symbols in the output. 
+
 # Quick Start
 
 ## Install Python Environment

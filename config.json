@@ -1,7 +1,7 @@
 {
   "baseline": {
     "n": 100,
-    "d": 30,
+    "d": 384,
     "training-data-path": "data/datasets/shakespeare/output.txt",
     "seeds": [496]
   },

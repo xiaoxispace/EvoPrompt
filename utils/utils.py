@@ -34,7 +34,7 @@ def load_text(path):
 
 def store_output(output, path):
   with open(path, "w", encoding="utf-8") as file:
-    json.dump(output, file, indent=4) 
+    json.dump(output, file, indent=2) 
 
 
 nonspace_symbol_set = ('\u2019', '[', ']', '?', '>', '<', ':', ';', '/', '.', '-', ',', ')', '(', '\'', '&', '"', '!')

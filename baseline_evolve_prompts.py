@@ -10,24 +10,19 @@ from utils.utils import set_seed, prepare_model, proportion_of_symbols
 
 if __name__ == "__main__":
   argparser = argparse.ArgumentParser()
-  argparser.add_argument(
-    '-m', '--model-path', 
-    type=str,
-    default="checkpoints/ctx384-3e-5/best_model_ctx384_d256_L3_H4_lr3e-05_dropout1e-01_e47.pth")
   argparser.add_argument('-t', '--eval-times', type=int, default=100)
   parser = argparser.parse_args()
-  model_path = Path(parser.model_path)
   eval_times = parser.eval_times
-
   seed = 496
   set_seed(seed)
 
+  model_path = Path("checkpoints/ctx384-3e-5/best_model_ctx384_d256_L3_H4_lr3e-05_dropout1e-01_e47.pth")
   model, tokenizer, config = prepare_model(model_path)
+  device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
   n = 100
   d = config["block_size"]
 
-  device = 'cuda' if torch.cuda.is_available() else 'cpu'
   def fitness_func(individual):
     output_token_ids = generate(model, individual, length = 3*d, device=device)
     output_text = tokenizer.decode(output_token_ids)

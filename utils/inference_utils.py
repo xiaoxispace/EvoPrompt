@@ -36,19 +36,21 @@ def generate(model, token_indx, length=1000, device='cpu', decoding_strategy_nam
   """Generate the list of output token indices given a list or a batch of list of token indices. """
   generated_token_index = []
 
+  new_inputs = torch.zeros(len(token_indx) + length + 1, dtype=torch.int64).to(device) 
+    # +1 for extra buffer in the for-loop
+    # without it, the last line in the loop will break at the last iteration
+  new_inputs[0: len(token_indx)] = torch.tensor(token_indx, dtype=torch.int64).to(device) # assume token_indx is 1-D
+  new_inputs = new_inputs.unsqueeze(0) # form a batch
+
   decoding_strategy = make_decoding_strategy(decoding_strategy_name)
   with torch.no_grad():
-    for _ in range(length):
-      inputs = torch.tensor(token_indx).to(device)
-      if len(inputs.size()) == 1:  # input is only a list
-        inputs = inputs.unsqueeze(0)
-
-      output = model(inputs, inputs) # (1, T, VOCAB)
+    for s in range(len(token_indx), len(token_indx) + length):
+      output = model(new_inputs[:, 0: s], new_inputs[:, 0: s]) # (1, T, VOCAB)
       output = output[:, -1, :] # (1, VOCAB)
       output = decoding_strategy(output)
 
       item = output.item()
       generated_token_index.append(item)
-      token_indx.append(item)
+      new_inputs[:, s+1] = item
 
   return generated_token_index

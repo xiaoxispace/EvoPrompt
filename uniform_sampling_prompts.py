@@ -5,7 +5,7 @@ from pathlib import Path
 
 from utils.inference_utils import generate
 from utils.population_utils import generate_population, evaluate_population
-from utils.utils import set_seed, prepare_model, proportion_of_symbols
+from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols
 
 
 if __name__ == "__main__":
@@ -26,7 +26,7 @@ if __name__ == "__main__":
   def fitness_func(individual):
     output_token_ids = generate(model, individual, length = 3*d, device=device)
     output_text = tokenizer.decode(output_token_ids)
-    return proportion_of_symbols(output_text)
+    return proportion_of_nonspace_symbols(output_text)
 
   vocab_to_ind = tokenizer.vocab_to_ind
 

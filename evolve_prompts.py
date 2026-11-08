@@ -6,7 +6,7 @@ from pathlib import Path
 
 from genetic_algorithm import genetic_algorithm
 from utils.inference_utils import generate
-from utils.utils import set_seed, proportion_of_symbols, prepare_model
+from utils.utils import set_seed, proportion_of_nonspace_symbols, prepare_model
 
 
 if __name__ == "__main__":
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     individual = list(individual)
     output_token_ids = generate(model, individual, length=3*d, device=device)
     output_text = tokenizer.decode(output_token_ids)
-    return proportion_of_symbols(output_text)
+    return proportion_of_nonspace_symbols(output_text)
 
   genes = list(tokenizer.vocab_to_ind.values())
   max_f, individual_with_max_f, population = genetic_algorithm(n, d, num_of_gen, genes, fitness)

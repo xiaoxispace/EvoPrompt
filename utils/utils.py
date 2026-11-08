@@ -32,9 +32,17 @@ def load_text(path):
   return text
 
 
-def proportion_of_symbols(text):
-  """Calculate the proportion of symbols in text"""
-  return sum(1 for char in text if not char.isalnum())/len(text)
+def store_output(output, path):
+  with open(path, "w", encoding="utf-8") as file:
+    json.dump(output, file, indent=4) 
+
+
+nonspace_symbol_set = ('\u2019', '[', ']', '?', '>', '<', ':', ';', '/', '.', '-', ',', ')', '(', '\'', '&', '"', '!')
+
+
+def proportion_of_nonspace_symbols(text):
+  """Calculate the proportion of nonspace symbols in text"""
+  return sum(1 for char in text if char in nonspace_symbol_set)/len(text)
 
 
 def prepare_model(model_path):

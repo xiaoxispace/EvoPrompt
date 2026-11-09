@@ -1,0 +1,19 @@
+{
+  "baseline": {
+    "n": 100,
+    "d": 384,
+    "training-data-path": "data/datasets/shakespeare/output.txt",
+    "seeds": [496]
+  },
+  "uniform": {
+    "n": 100,
+    "d": 384,
+    "seeds": [496]
+  },
+  "ga": {
+    "n": 100,
+    "d": 384,
+    "gen": 100,
+    "seeds": [496]
+  }
+}

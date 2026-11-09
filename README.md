@@ -1,11 +1,40 @@
-# Evolutionary Prompt Optimization for Symbolic Generation
-Evolving character-level prompts to make a 4M Shakespeare Transformer output symbols instead of language.
+# Evolutionary Prompt Optimization for Nonspace Symbolic Generation
+This project aims at searching a 4M Transformer model's output space for nonspace symbolic outputs by evolving the prompts fed into the model, where the model was trained on the text of Shakespeare's plays. 
+
+# Experiments
+
+## Setup
+
+The metric, or the fitness function, of the output text is defined as the proportion of the nonspace symbols in the text. The goal is to maximize the value of the metric with different prompt search or prompt evolution strategies. 
+
+Three prompt strategies are explored in this project:
+- Sampling the dataset as prompts (baseline)
+- Sampling the vocabulary as prompts (uniform sampling in the vocabulary)
+- Sampling the vocabulary as prompts and evolve the prompts with the [Genetic Algorithm](https://arxiv.org/pdf/2007.12673)
+
+The detailed results can be found in the [Results](#results) section.
+
+## Results
+
+### Baseline
+
+The first baseline to compare is the proportion of nonspace symbols in the dataset. The proportion is approximately 4.5%. The result is calculated by executing `python baseline_prompt.py` and is stored in `outputs/symbol-proportion.json`. 
+
+Another baseline is how many nonspace symbols does the model generate given the text input in the dataset. `baseline_prompt.py` also calculates this by sampling the dataset 100 times and return the prompt that leads to the most nonspace symbol output.
+
+The maximum fitness score found by this strategy is approximately 8%. The prompt, model output, and other experiment details can be found in `outputs/baseline/n100-d384-s496.json`.
+
+### Uniform Sampling
+
+An improved approach than sampling the dataset is to sample the vocabulary. The sampling can be done in the entire vocabulary space or only the nonspace vocabulary space. The later tends to assume more symbols in the prompt will cause the model to generate more symbols in the output. 
+
+# Appendix
+
+## Model Specification
 
 This project utilizes the models trained from the [Transformer Playground](https://github.com/xiaoxispace/transformer-playground) project. The checkpoint to use is the model that achieves the minimum validation loss, specifically the model with 384 context size and trained with `3e-5` learning rate.
 
-# Quick Start
-
-## Install Python Environment
+## Python Environment Setup
 
 1. Install pyenv from [the pyenv public repo](https://github.com/pyenv/pyenv#a-getting-pyenv). Specifically, for linux, 
     1. Update and install system dependencies

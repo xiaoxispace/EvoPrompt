@@ -1,7 +1,7 @@
 import copy
 import pytest
 
-from utils.utils import set_seed, proportion_of_symbols
+from utils.utils import set_seed, proportion_of_nonspace_symbols
 from genetic_algorithm import select, crossover, mutate, genetic_algorithm
 
 
@@ -16,7 +16,7 @@ def test_selection():
     "asfdjlkael!"
   ]
 
-  new_pop = select(population, proportion_of_symbols)
+  new_pop = select(population, proportion_of_nonspace_symbols)
   assert new_pop[0] == population[1]
   assert new_pop[1] == population[0]
   assert id(new_pop[0]) == id(population[1])

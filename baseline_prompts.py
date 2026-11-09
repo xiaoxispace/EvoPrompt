@@ -1,4 +1,5 @@
 import copy
+import json
 import random
 import torch
 
@@ -37,6 +38,7 @@ if __name__ == "__main__":
     output_text = tokenizer.decode(output_token_ids)
     return proportion_of_nonspace_symbols(output_text)
 
+  print("Config: ", json.dumps(config, indent=2))
   max_f = 0
   best_prompt_tokens = []
   population = []

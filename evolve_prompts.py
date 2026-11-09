@@ -1,4 +1,5 @@
 import copy
+import json
 import torch
 
 from pathlib import Path
@@ -28,6 +29,7 @@ if __name__ == "__main__":
     output_text = tokenizer.decode(output_token_ids)
     return proportion_of_nonspace_symbols(output_text)
 
+  print("Config: ", json.dumps(config, indent=2))
   genes = list(tokenizer.vocab_to_ind.values())
   max_f, best_fit_prompt_tokens, population = genetic_algorithm(n, d, gen, genes, fitness)
   best_fit_prompt_output = tokenizer.decode(generate(model, best_fit_prompt_tokens, 3*d))

@@ -1,4 +1,5 @@
 import copy
+import json
 import torch
 
 from pathlib import Path
@@ -24,9 +25,9 @@ if __name__ == "__main__":
     output_token_ids = generate(model, individual, length = 3*d, device=device)
     output_text = tokenizer.decode(output_token_ids)
     return proportion_of_nonspace_symbols(output_text)
-
   vocab_to_ind = tokenizer.vocab_to_ind
 
+  print("Config: ", json.dumps(config, indent=2))
   print("Evaluate only the population sampled from nonspace symbols")
   genes = list(i for k, i in vocab_to_ind.items() if k in nonspace_symbol_set)
   population = generate_population(n, d, genes)

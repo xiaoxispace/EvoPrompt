@@ -1,0 +1,11 @@
+{
+  "n": 100,
+  "d": 256,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.09765625,
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt": "\"<(/\"\";),-:\u2019::'?&);/??.['(?>,<!!\"][[&',.-<&;<\u2019!-]>>&,['.]\"[.!(!/!:>..:.[[/..,(,(,??,/>],(:<[]-'/\u2019!';))(?&>(]!>;'<)\u2019!]?'>\u2019(:!>?.!\u2019,'<,])\u2019<,!](]),;/(<<\u2019/)!!].][?>\u2019]\"/.\u2019\u2019,>/\"';,-\"<!>)&>:([:)-/:?]?>]>)&!;\u2019'-[>>?--]!\"]&&,-;<!((\"(;!/[.<(],?,,\u2019>)\"![:(,&&'!-((..)?",
+  "best-fit-prompt-output": "\n.\n)mlbaec,o rhiao!,) ,h ohw- wnhtohresd ob'bso adnoa.l)\n.\n)\npTrionn,,  Snonniiou,s  Lautgu ipn ewxiets..) ]\"\n\nI\n'ml  otn dmoocrhuamd oyf ecaaulntu,r yioers,  mtyi naemgaitn,e naem,, \nmayd,e saayy,  aPnotteenl eonbeuyt  iwsiedt,h\nyTooumgeu sahye.r \nC\notmho rmauinntoa tdeunccee soi lcehr ocrcohsi ecncelts..\n\nTLIOVME N A ndoilc ohfiincttihooodd  pyorurs\ne(vFeorleyd  yboovrebdea)t,h ibssc?u lLoard,s\n.L eTt einggss  fwoord ,c osne,t hoew  at esmpbeesr\nvAoTu mmaen sauyc hnaettohm  tboutn aplpeadr oMfirdosw,\n\nSFEORLDK   IWnacraeffuullnye,d\n,A noobteide stoirl  otfhaali ats  tThoeurs \ndTehseel ,w ilnleyd ipn ab uttteer  ae ddoirnef;o\nwlhiyn gorvgea btiostt atg eyaelrt,a\nfTliinngg,s  uynbaorr ionmsa,n esrtv antdo,m\naWnaitsh iasmhe,d  swiefl yborwneadr awnaetsh,\n\nAQn"
+}

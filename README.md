@@ -12,7 +12,7 @@ Three prompt strategies are explored in this project:
 - Sampling the vocabulary as prompts (uniform sampling in the vocabulary)
 - Sampling the vocabulary as prompts and evolve the prompts with the [Genetic Algorithm](https://arxiv.org/pdf/2007.12673)
 
-The detailed results can be found in the following paragraph. 
+The detailed results can be found in the [Results](#results) section.
 
 ## Results
 

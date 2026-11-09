@@ -5,6 +5,7 @@ import torch
 
 from pathlib import Path
 
+from constants import CONFIG_PATH, MODEL_PATH
 from utils.inference_utils import generate
 from utils.population_utils import evaluate_population
 from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols, load_config, load_text, store_output
@@ -13,17 +14,14 @@ from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols,
 if __name__ == "__main__":
   argparser = argparse.ArgumentParser()
   argparser.add_argument('-t', '--eval-times', type=int, default=1)
-  argparser.add_argument('-c', '--config-path', type=Path, default="config.json")
   output_path = Path("outputs/baseline")
   parser = argparser.parse_args()
   eval_times = parser.eval_times
-  config_path = parser.config_path
 
-  model_path = Path("checkpoints/ctx384-3e-5/best_model_ctx384_d256_L3_H4_lr3e-05_dropout1e-01_e47.pth")
-  model, tokenizer, config = prepare_model(model_path)
+  model, tokenizer, config = prepare_model(MODEL_PATH)
   device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-  config = load_config(config_path, "baseline")
+  config = load_config(CONFIG_PATH, "baseline")
   training_data_path = config["training-data-path"]
   text = load_text(training_data_path)
   text_length = len(text)

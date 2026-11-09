@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 384,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.0859375,
+  "symbol": ">",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "otsr,rog,osslr sOoFlFoorrd oVsolsors \nR\noTshrrsoeardd, ohrfda gorldo,croscsa,o rHuoslradd.  MRoFsoslcvioocrod\nurr  HMoowraddo,r saoorrd.o]c.osvse,r ,ao\nrMrarldo coasusra,g awndtegggeor.g]e\nrMaelroiwn,g eVeorl oSroult,e rBeodweolra  owaldv,a dcoamrioa.ns..o]r,  hLe ohf!e  Fsoers ,moirli!a\n)\n,rdi ncouunntasttianc.e lYisnp'asls  aFndi.r \nLLoonkiess  ASntn etn ab roobceodm esvceasbeld.?\n\n\nFHEARR \n NNoo,s  yKoiunmg'esr ainmter .t h'i nfeuerlsy,\n A nweorpihsetthh  mhaarrse dfeaatr idnleesr,i\nnOeb lsioannst  tihme rwaatr ies ttoog.h\neDnuimeend,  mDaarn aann epxoimteed  owfn ;t\nhmeievse \ntArIrEi nhEedl,a sIi ghaont  tbhloosdo laountds.i\nd rtaumnsd,a ywoirn girvleednsy- -E\naNsTw\neTrwaarrya,l yoouk,  auntt .m yHoorrs .m\ne\n E Shcakneesl aungdeodu ctiipzh aaw 'tt.i\nnTehro niigqouyt!i\nn\noSuRp  sAhrep oifnsi omfnoautleodn  tdhirsdtl\neWxitt  itg eaatreisotne soeuvteadn.e\n-\ntThOa\nsAtn enidues  aG ahluisdhainn guiels  yIoMuetseisu sgceopr\niSn\ncSoCmIeO'fTiwee niogneeds  moerniino \nwAonndi naouts  tliobneys ,i sberaelre.d\n G iiffee,,  asn  pcuori tahlobartbirne,d\n,A pwairn gwrioouuss,,\n W haatn erngeend,e ai rtehmg!r  Gaoldl ytohuem\nedviicse ,m yhoaurss"
+}

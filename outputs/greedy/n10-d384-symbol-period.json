@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 384,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.08680555555555555,
+  "symbol": ".",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "\ns[ pTmi tAh\n AAlrliet, \tP oEuNrye  LAokr uRskp.h],\n [[wdoounrse swteh  shwaatrs .k,e ldeo\nnAornise,  BBooyn.,]  TIh\nsWheorpe\tn[arsi.e]]\n\nGSohuTtR .C oTlUeS,\n [[FToiuRrDa nPoelsi uOpte.s]]  YAoMrBsR U[s,  [baanndt]]  LSeo  [Paolsi]u\nl\toIrmiatbhe,l lSeepm.a ]Wohraenst  pyo ulno!t\n.[oTaRbeOl p hsipess,  tmoircolba,t iwnairnieerd\n,I  wciorn ew'elrl off etxattiivoer ;o rweaerd\n\nDSUOF F RIATROO'NR AoPtE R OQuUiEnNtAyR,\n T hTeOr  bPreans\n\nC\nOTRHA L OP,H  'WThienn epsutr aa rCuerrs',  gsatdi.n\n\n\nPSRTIIAAND   WAeRn,e  iSt itn ebvains. \nBPORYD,I  admviisah  sfwoerveedr  toon \ntphreayd,i ntoh icnejsoint,  ftoen eivteadnoen.\n\n'PTIINTGRUEM A,n eyveerr.u sAapse tah' satyi naomr..\n\n\nVSOTL\nECvOeT',S  mSaalm,,  hoa!!\n \n R OtMhoslti\nnfoorl,y  mNearn,e rPehteor .t\nh\niCmAeSn,\n T hwaitn goionn,s  bNuorcsheidn efvfeurnyc,a\nnAa tdheera bweolnde diesd amgbe rcehmeen\n.n  rchoiocne rweingd,o naotnhi.n\n C otnegyl eyye ,oinsg lcerptiiotn!,\n \n C Otnhga!l  H'e,n aa  doalridmaaytsi ann oafteerd,\n\nACnH B yToom !o  Lwarrey  AWnto,n .a\nr\neIcChE S c awnaapti soh efrfeecnt ifn emvb'er ,o\nwNiocweirt !e  bqruaedr ebmyy  gmeamt,,\n\nWMhIoN   NLoevoelr  imfpfreesd  hoowd 'sm"
+}

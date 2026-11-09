@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 384,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.3046875,
+  "symbol": "-",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "\n\nLwh----Barld----hwoh-a--o ctoh----\n\n[\nof----t\nhwaot,--d-a--c\naNndg-r-oagt--- ao tJhoua---t[hte--paepd---\n\nC'oi----\n\nAk at---\npSrooc-c-oc----\n\nM\nofr tihm----\ncSoo tiht---aOs,----\nh\nePr-i-n--\n\nTOhB-a---y\noLfd-!---BIr dai-n-o-t-rtaurg-e-a-f-att-a---\n\n\nCQOuU-C-adpmoin----\n\nAWsH e ryooum eorrsy--g-actt-oh---Tyhroe--p\neNa-twihta!l\n\n[MAe-d-r-iOnp-ab-sLiev.e---H[ea peitsh ahtohneos].---H\nosfitcso-r-ihg---wfhoort----o\nbdoau-t-rkayt----naorn-!----\nWtheer,. -OW efloowd -i\nfftoel-o-u-tdrauwg!! \nI['glaidn eexliibuitn ghoislty ,hnegcr.e\n [ Eanrt hSitlsa..]]\n TGhooud ,g osuep ouftf\nuAstiorno.w\n    Tfhoeust-e-afnfeicteldy!---\nYUoBrIaAnNa ,[otwhiillla-]- fborxo,m yyooud,!\n \n'DSwso niogneet!,\n\nWBAESK I Daamn ewne dtoowr.t\n \n D otmhosdtoolde stlaen.e\t'[TLaira nroewtahgee .c]o\nm\nyTiHlT S O otfhiasn ewse dnoibsl yhoaurs\n.U\nnIaCp otuhc,a staanntu.r\n \n B etremapienrcye'ns  aSn chlairl ywoers  otfha.l\n\n\nASLSEISO\n\nWWeEl   NOoRrDa ytohn,e wsiotn,  awsaeu,, \nbtuee ;f ohre ahl eexnta nhooudse loavt'es\n p ehaoptehrl atw awlainn ghrionts. \n [LAoDrO  eAxsf]o\nrAento,n ,a thhoord  af fhreisnte.r \nTSoAmL O F aSsYiEa\n,Ltoh,e wahy,,  OBreaakteims ,w haott hiam! \nLDU M"
+}

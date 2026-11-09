@@ -22,11 +22,19 @@ The first baseline to compare is the proportion of nonspace symbols in the datas
 
 Another baseline is how many nonspace symbols does the model generate given the text input in the dataset. `baseline_prompt.py` also calculates this by sampling the dataset 100 times and return the prompt that leads to the most nonspace symbol output.
 
-The maximum fitness score found by this strategy is approximately 8%. The prompt, model output, and other experiment details can be found in `outputs/baseline/n100-d384-s496.json`.
+The results across different context sizes can be found in `outputs/baseline`.
 
 ### Uniform Sampling
 
 An improved approach than sampling the dataset is to sample the vocabulary. The sampling can be done in the entire vocabulary space or only the nonspace vocabulary space. The later tends to assume more symbols in the prompt will cause the model to generate more symbols in the output. 
+
+The results can be found in `outputs/uniform`.
+
+### Greedy Prompt
+
+Given the results in [Uniform Sampling](#uniform-sampling), more nonspace symbols in the prompt tend to cause more nonspace symbols in the output. Therefore, a natrual generalization from uniform sampling is to greedily construct the prompt, i.e., using only one nonspace symbol as the entire prompt. 
+
+The results can be found in `outputs/greedy`. 
 
 # Appendix
 

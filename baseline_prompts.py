@@ -59,4 +59,4 @@ if __name__ == "__main__":
   output["best-fit-prompt"] = tokenizer.decode(best_prompt_tokens)
   output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
 
-  store_output(output, output_path / f"n{n}-d{d}-s{seed}.json")
+  store_output(output, output_path / f"n{n}-d{d}.json")

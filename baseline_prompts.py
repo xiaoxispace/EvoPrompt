@@ -63,6 +63,7 @@ if __name__ == "__main__":
     print("  Output text with max_f: ", tokenizer.decode(best_prompt_tokens))
 
   output["max-f"] = max_f
+  output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["best-fit-prompt"] = tokenizer.decode(best_prompt_tokens)
   output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
 

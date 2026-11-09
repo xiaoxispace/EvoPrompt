@@ -1,4 +1,3 @@
-import argparse
 import copy
 import torch
 
@@ -11,20 +10,17 @@ from utils.utils import set_seed, proportion_of_nonspace_symbols, prepare_model,
 
 
 if __name__ == "__main__":
-  argparser = argparse.ArgumentParser()
+  model, tokenizer, config = prepare_model(MODEL_PATH)
+  device = 'cuda' if torch.cuda.is_available() else 'cpu'
   output_path = Path("outputs/ga")
-  parser = argparser.parse_args()
-  config = load_config(CONFIG_PATH, "ga")
 
+  config = load_config(CONFIG_PATH, "ga")
   n = config["n"]
   d = config["d"]
   seed = config["seeds"][0]
   gen = config["gen"]
   set_seed(seed)
   output = copy.deepcopy(config)
-
-  device = 'cuda' if torch.cuda.is_available() else 'cpu'
-  model, tokenizer, config = prepare_model(MODEL_PATH)
 
   def fitness(individual):
     individual = list(individual)

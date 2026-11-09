@@ -1,27 +1,25 @@
-import argparse
+import copy
 import torch
 
 from pathlib import Path
 
+from constants import CONFIG_PATH, MODEL_PATH
 from utils.inference_utils import generate
 from utils.population_utils import generate_population, evaluate_population
-from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols
+from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols, load_config, store_output
 
 
 if __name__ == "__main__":
-  argparser = argparse.ArgumentParser()
-  argparser.add_argument('-t', '--eval-times', type=int, default=100)
-  parser = argparser.parse_args()
-  eval_times = parser.eval_times
-  seed = 496
-  set_seed(seed)
-
-  model_path = Path("checkpoints/ctx384-3e-5/best_model_ctx384_d256_L3_H4_lr3e-05_dropout1e-01_e47.pth")
-  model, tokenizer, config = prepare_model(model_path)
+  model, tokenizer, config = prepare_model(MODEL_PATH)
   device = 'cuda' if torch.cuda.is_available() else 'cpu'
+  output_path = Path("outputs/uniform")
 
-  n = 100
-  d = config["block_size"]
+  config = load_config(CONFIG_PATH, "baseline")
+  n = config["n"]
+  d = config["d"]
+  seed = config["seeds"][0]
+  output = copy.deepcopy(config)
+  set_seed(seed)
 
   def fitness_func(individual):
     output_token_ids = generate(model, individual, length = 3*d, device=device)

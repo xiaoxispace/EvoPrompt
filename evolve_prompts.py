@@ -39,10 +39,10 @@ if __name__ == "__main__":
   best_fit_prompt_tokens = population[i_with_max_f]
   best_fit_prompt_output = tokenizer.decode(generate(model, best_fit_prompt_tokens, 3*d))
 
-  output["max-f"] = torch.max(score_tensor).item()
-  output["average-f"] = torch.mean(score_tensor).item()
-  output["median-f"] = torch.median(score_tensor).item()
-  output["std-f"] = torch.std(score_tensor).item()
+  output["resampled-max-f"] = torch.max(score_tensor).item()
+  output["resampled-average-f"] = torch.mean(score_tensor).item()
+  output["resampled-median-f"] = torch.median(score_tensor).item()
+  output["resampled-std-f"] = torch.std(score_tensor).item()
   output["resampled-fitness-scores"] = resampled_fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["resampled-best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)

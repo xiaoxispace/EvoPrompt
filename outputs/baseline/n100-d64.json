@@ -1,0 +1,12 @@
+{
+  "n": 100,
+  "d": 64,
+  "training-data-path": "data/datasets/shakespeare/output.txt",
+  "seeds": [
+    496
+  ],
+  "max-f": 0.10416666666666667,
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt": "ch as will make him a royal\nman and send him back again to my mo",
+  "best-fit-prompt-output": "se schroand. \nIRAESS\n O ,G owrettceh,!  B uitt lhiacrhe,d  mmyo\ndselaftf uanrtouosu lmealn tshaolt  aanucaht?a\nl\naGcAuRf It  pyrpaenc eaxte noown ,t oouncde\ndmoecsh.a\nrWIhL   FSeTrR'Esa lpioer"
+}

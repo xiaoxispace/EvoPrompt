@@ -1,0 +1,12 @@
+{
+  "n": 100,
+  "d": 256,
+  "training-data-path": "data/datasets/shakespeare/output.txt",
+  "seeds": [
+    496
+  ],
+  "max-f": 0.10286458333333333,
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt": "ks within there? Ho, open the door.\n\nDROMIO OF SYRACUSE, [within]\nRight, sir, I'll tell you when an you'll tell me\nwherefore.\n\nANTIPHOLUS OF EPHESUS\nWherefore? For my dinner. I have not dined today.\n\nDROMIO OF SYRACUSE, [within]\nNor today here you must not",
+  "best-fit-prompt-output": " dnems  isn  enyf\no(rFaoilrisahn,,  wUhnriiboll,u saawdeirneesd'lsl ibneo..\n\n\nAFNIIAURS   WAiRt 'FTaIlN It,  itf oyuarlsy, \nfAaLuuss,;  tihloeosu;r eanrt  tDhuunmdaynss .T\nh\neAnRgISPAA \n G Ot  fCoouunst  fsaallt ablues  wweingg .t\nh\neCaIpUht  mIe tdhues .a\n,\n A Ngooudt,e nroyoaugsh atn dou bheoalrsd ,m adnveasla.\n\n\nPAANYTEARN   AFnIeAlR  tThwaarr'esr emnbalslhy .t\no\n A Cshtelrl,y  bfuirde rleeatf.u\nlFarteira ,s iIw adsd,e msya naomteirm'esn acgtuaarr!e\n\nBNAUR   WUhLa ssatye dbilll?i npoeitniegse nioguee.. -Y\nestaatliyn!g eYlo ubnttyi nwooodk,e\nsAindt  iBfo rdeorl arnm eTny  tthoeur .w\nh\naPpplee,n twhoy sauycehneesdeadd-e-noowreodu ceorss.;\n-GEoNbDAURK\n\nYYooud  cuofrf eaxreasdeodu.s\n C OSxW A  sIc,k ewxeedn efxfcoem etye. \nBAUSD\n\nON,S oIfs aabruasveo nhea vfi"
+}

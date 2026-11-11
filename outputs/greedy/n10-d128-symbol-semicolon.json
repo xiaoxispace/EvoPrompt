@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 128,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.11458333333333333,
+  "symbol": ";",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "  abl;.  Aan niog,,  spyi,,\n\nya u'lit-eet eavsy,;  hsa,l  hwaep int oootmh\nsionn ,t emspte dmauignh twhaelneeaddeed.;\n\nukpeoanr;h its'e,r as  tchoonnso,r  atn eavcya.r\n\nQawiann,o rIu'ms.  OSnq uHellios,o lsoa tshei rporstoirc.l\nesrep eiyt oifliensc,o nboetdl,y  qtuiavlep.t\n A nmaacghoartisl,y  wmiels ;I  gwoo -bkleidke daeyl,e\nasm etveerrs,,  drouvge  hyimn eanrc hIi rlievvee\n;t hw"
+}

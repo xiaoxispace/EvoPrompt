@@ -38,4 +38,4 @@ if __name__ == "__main__":
   output["best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)
   output["best-fit-prompt-output"] = best_fit_prompt_output
 
-  store_output(output, output_path / f"n{n}-d{d}-s{seed}.json")
+  store_output(output, output_path / f"n{n}-d{d}.json")

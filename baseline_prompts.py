@@ -52,9 +52,9 @@ if __name__ == "__main__":
   output["average-f"] = torch.mean(score_tensor).item()
   output["median-f"] = torch.median(score_tensor).item()
   output["std-f"] = torch.std(score_tensor).item()
-  output["fitness-scores"] = fitness_scores
+  output["resampled-fitness-scores"] = fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["best-fit-prompt"] = tokenizer.decode(best_prompt_tokens)
-  output["sample-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
+  output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
 
   store_output(output, output_path / f"n{n}-d{d}.json")

@@ -31,11 +31,21 @@ if __name__ == "__main__":
 
   print("Config: ", json.dumps(config, indent=2))
   genes = list(tokenizer.vocab_to_ind.values())
-  max_f, best_fit_prompt_tokens, population = genetic_algorithm(n, d, gen, genes, fitness)
+  population = genetic_algorithm(n, d, gen, genes, fitness)
+
+  resampled_fitness_scores = [fitness(i) for i in population]
+  score_tensor = torch.tensor(resampled_fitness_scores)
+  i_with_max_f = int(torch.argmax(score_tensor).item())
+  best_fit_prompt_tokens = population[i_with_max_f]
   best_fit_prompt_output = tokenizer.decode(generate(model, best_fit_prompt_tokens, 3*d))
-  output["max-f"] = max_f
+
+  output["resampled-max-f"] = torch.max(score_tensor).item()
+  output["resampled-average-f"] = torch.mean(score_tensor).item()
+  output["resampled-median-f"] = torch.median(score_tensor).item()
+  output["resampled-std-f"] = torch.std(score_tensor).item()
+  output["resampled-fitness-scores"] = resampled_fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
-  output["best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)
-  output["best-fit-prompt-output"] = best_fit_prompt_output
+  output["resampled-best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)
+  output["resampled-best-fit-prompt-output"] = best_fit_prompt_output
 
   store_output(output, output_path / f"n{n}-d{d}.json")

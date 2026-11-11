@@ -27,18 +27,11 @@ def mutate(individual, genes):
 
 def genetic_algorithm(n, d, num_of_gen, genes, fitness_func):
   population = generate_population(n, d, genes)
-  max_f = 0
-  individual_with_max_f = []
   with tqdm(range(num_of_gen), unit='gen') as pbar:
     for _ in pbar:
-      pbar.set_description("Eval population by fitness")
+      pbar.set_description("Select half of the population with higher fitness")
       population = select(population, fitness_func)
       selected_pop = population[0:len(population) // 2]
-
-      f = fitness_func(selected_pop[0])
-      if f > max_f:
-        max_f = f
-        individual_with_max_f = copy.deepcopy(selected_pop[0])
 
       pbar.set_description("Crossovers")
       crossover_times = n - len(selected_pop)
@@ -54,5 +47,5 @@ def genetic_algorithm(n, d, num_of_gen, genes, fitness_func):
       for i in range(len(population)):
         if random.random() > 0.5:
           population[i] = mutate(population[i], genes)
- 
-  return max_f, individual_with_max_f, population
+
+  return population

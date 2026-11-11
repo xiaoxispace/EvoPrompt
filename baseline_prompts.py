@@ -45,18 +45,16 @@ if __name__ == "__main__":
   for _ in range(n):
     s = random.randint(0, text_length - d)
     population.append(tokenizer.encode(text[s: s+d]))
-  f, prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
+  max_f, best_prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
 
-  if f > max_f:
-    max_f = f
-    best_prompt_tokens = prompt_tokens
-
-  print("  Max fitness score: ", max_f)
-  print("  Output text with max_f: ", tokenizer.decode(best_prompt_tokens))
-
+  score_tensor = torch.tensor(fitness_scores)
   output["max-f"] = max_f
+  output["average-f"] = torch.mean(score_tensor).item()
+  output["median-f"] = torch.median(score_tensor).item()
+  output["std-f"] = torch.std(score_tensor).item()
+  output["resampled-fitness-scores"] = fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["best-fit-prompt"] = tokenizer.decode(best_prompt_tokens)
-  output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
+  output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
 
   store_output(output, output_path / f"n{n}-d{d}.json")

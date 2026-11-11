@@ -55,8 +55,13 @@ if __name__ == "__main__":
     population = generate_population(n, d, genes)
     max_f, best_fit_prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
     output = copy.deepcopy(config)
-    output["max-f"] = max_f
+    score_tensor = torch.tensor(fitness_scores)
+    output["max-f"] = torch.max(score_tensor).item()
+    output["average-f"] = torch.mean(score_tensor).item()
+    output["median-f"] = torch.median(score_tensor).item()
+    output["std-f"] = torch.std(score_tensor).item()
     output["symbol"] = symbol
+    output["fitness-scores"] = fitness_scores
     output["fitness-function"] = proportion_of_nonspace_symbols.__name__
-    output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
+    output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
     store_output(output, output_path / f"n{n}-d{d}-symbol-{name}.json")

@@ -32,20 +32,30 @@ if __name__ == "__main__":
   genes = list(i for k, i in vocab_to_ind.items() if k in nonspace_symbol_set)
   population = generate_population(n, d, genes)
   max_f, best_fit_prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
+  score_tensor = torch.tensor(fitness_scores)
   output = copy.deepcopy(config)
-  output["max-f"] = max_f
+  output["max-f"] = torch.max(score_tensor).item()
+  output["average-f"] = torch.mean(score_tensor).item()
+  output["median-f"] = torch.median(score_tensor).item()
+  output["std-f"] = torch.std(score_tensor).item()
+  output["fitness-scores"] = fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)
-  output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
+  output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
   store_output(output, output_path / f"n{n}-d{d}-symbol.json")
 
   print("Evaluate the population sampled from the entire vocabulary")
   genes = list(i for _, i in vocab_to_ind.items())
   population = generate_population(n, d, genes)
   max_f, best_fit_prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
+  score_tensor = torch.tensor(fitness_scores)
   output = copy.deepcopy(config)
-  output["max-f"] = max_f
+  output["max-f"] = torch.max(score_tensor).item()
+  output["average-f"] = torch.mean(score_tensor).item()
+  output["median-f"] = torch.median(score_tensor).item()
+  output["std-f"] = torch.std(score_tensor).item()
+  output["fitness-scores"] = fitness_scores
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
   output["best-fit-prompt"] = tokenizer.decode(best_fit_prompt_tokens)
-  output["best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
+  output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_fit_prompt_tokens, length = 3*d, device=device))
   store_output(output, output_path / f"n{n}-d{d}-vocab.json")

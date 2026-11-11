@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 64,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.09375,
+  "symbol": "]",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": " whcahcadtesswwssopsroanpkparewwhhiepse\nsTehli ndchawpreoru?p  pwaem enatu?a tdhreivse\nsEotb ewreend  tahs,.  Isn !tOwp emays\n gRoaapn,e nuopu!t  qhuaskh on' stcuatti!f\n\nbsliids?!  Nbiucbk,e d"
+}

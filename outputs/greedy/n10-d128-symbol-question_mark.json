@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 128,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.10416666666666667,
+  "symbol": "?",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "\n\nhhaav eR!  LMaps  FFeo,?  SAahnes.?] \nLDe\ntThAyyD\n NFaELNED AC  HCuHR KSiSgDrR\n\nHJaArR  FTiall?? \nHDaAnR DCotm ehxo lnoo pmualr ocrcoicn? \nNOORRDDFAALNRDAANRDDIFNFDREYR   KNi g olndd.e\n\nIRRIDEARD\nAAyy,  Dairn aem !o\n.H eA Rqeuernoe?r eI' lfoeu,  mmyr icsq uoatts,,\n a's  ab oaltcihpnpoaxneard.!\n\n\nNPUHREDL\nEAaRr  [MEa rs'o prrianc,e dliineg .t\nh\nePxrciess  tsotu.t]e\nn\noDtRaAlN T hP"
+}

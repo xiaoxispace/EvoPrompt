@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 128,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.11979166666666667,
+  "symbol": ",",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": " \nc oac ctaauige,,\"  yto  nLourn,  mma nttiinv,a\"b\noltd !o\"n cooml,o nTaurgto ,o fwoords,,\"  sohme,n etyw,a ,p\naTliiruimneetd,,  aarttsh.i c6o\nrOen  tIo  mta tweolpvhe swaoynionr agneisah,,\n akniaf,,  tbhreoa rsoowk eosuensc,o rlaisn,:  gwial,  aSr its\nefbfbloioc,e  actcihbiosts'.  HDo tphoiatnse,  aAnceo,,  Jmuel,e\n[c(aTloecrhaanpdeerr..)).]] \nG\now,s  ciotu ryec tiols., \n'HTaetrs "
+}

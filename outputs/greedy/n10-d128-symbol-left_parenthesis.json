@@ -1,0 +1,11 @@
+{
+  "n": 10,
+  "d": 128,
+  "seeds": [
+    496
+  ],
+  "max-f": 0.4375,
+  "symbol": "(",
+  "fitness-function": "proportion_of_nonspace_symbols",
+  "best-fit-prompt-output": "c))))))))))))))))))))))))))))) ,aa)))),)),)))))))),)))  Qaoi))))) )a )md))) .A) )a, )a )(d(i(a(s))),)))) )a))))\n)iasd)) ,A )W.e)))) saot))  aag)), )att)) ,g.i)), )O )gladm)),, )I )i,s)) \nast earc)h iIs)  atn )a taifr)s  l(eGf)t )rpd)o uIn)i\nmwiisnt )bdaumgeerr)) ,a  orfdiinu)s.))\n\nm yuonr,  aSn iits  b(eSnta)n,t itf liofutlei)o,n )issees,,\n a nCoovliiunsg,r ,f\"o rAagbolnsg,i ainr,a"
+}

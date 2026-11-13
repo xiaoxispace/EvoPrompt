@@ -1,6 +1,8 @@
 # Evolutionary Prompt Optimization for Nonspace Symbolic Generation
 This project aims at searching a 4M Transformer model's output space for nonspace symbolic outputs by evolving the prompts fed into the model, where the model was trained on the text of Shakespeare's plays. 
 
+![Hey Shakespeare!](figs/evolutionary-prompts-challenge-shakespeare-transformer.png)
+
 # Experiments
 
 ## Setup

@@ -1,5 +1,6 @@
 import random
 import torch
+import wandb
 
 from tqdm import tqdm
 from utils.population_utils import generate_population, create_population_tensor
@@ -127,8 +128,15 @@ def genetic_algorithm_tensor(n, d, num_of_gen, genes, population_fitness_func, d
   D = d*4+1
   population = create_population_tensor(n, D, genes, device=device)  # extra dimensions as placeholders for outputs and fitness scores
   scored_population = population_fitness_func(population)
-  with tqdm(range(num_of_gen), unit='gen') as pbar:
-    for _ in pbar:
+  wandb.log({
+    "average-f": torch.mean(scored_population[:, -1]).item(),
+    "median-f": torch.median(scored_population[:, -1]).item(),
+    "std-f": torch.std(scored_population[:, -1]).item(),
+    "max-f": torch.max(scored_population[:, -1]).item(),
+  })
+
+  with tqdm(range(1, num_of_gen+1), unit='gen') as pbar:
+    for e in pbar:
       pbar.set_description("Select half of the population with higher fitness")
       scored_population = select_tensor(scored_population)
       selected_pop = scored_population[0:len(population) // 2, :]
@@ -144,4 +152,12 @@ def genetic_algorithm_tensor(n, d, num_of_gen, genes, population_fitness_func, d
       # iterate to the next generation
       population = scored_population.to(torch.int64)
       scored_population = population_fitness_func(population, scored_population)  # operate on the existing scored_population to update fitness scores
+
+      # log fitness statistics to wandb
+      wandb.log({
+        "average-f": torch.mean(scored_population[:, -1]).item(),
+        "median-f": torch.median(scored_population[:, -1]).item(),
+        "std-f": torch.std(scored_population[:, -1]).item(),
+        "max-f": torch.max(scored_population[:, -1]).item(),
+      })
   return scored_population

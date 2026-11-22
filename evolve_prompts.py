@@ -1,3 +1,4 @@
+import argparse
 import copy
 import json
 import torch
@@ -8,6 +9,7 @@ from constants import MODEL_PATH, CONFIG_PATH
 from genetic_algorithm import genetic_algorithm_tensor, genetic_algorithm
 from utils.inference_utils import generate, generate_tensor
 from utils.utils import set_seed, proportion_of_nonspace_symbols, prepare_model, load_config, store_output
+from utils.wandb_utils import setup_wandb
 
 
 def evolve_prompts(model, tokenizer, config, output_path, n, d, gen, genes):
@@ -68,11 +70,19 @@ def evolve_prompts_tensor(model, tokenizer, config, output_path, n, d, gen, gene
 
 
 if __name__ == "__main__":
+  parser = argparse.ArgumentParser(
+                  prog='EvoPrompt',
+                  description='Evolve prompts using genetic algorithm')
+  parser.add_argument('--enable-wandb', action='store_true')
+  args = parser.parse_args()
+  enable_wandb = args.enable_wandb
+
   model, tokenizer, config = prepare_model(MODEL_PATH)
   device = 'cuda' if torch.cuda.is_available() else 'cpu'
   output_path = Path("outputs/ga")
 
   config = load_config(CONFIG_PATH, "ga")
+  setup_wandb(config, enable_wandb, "genetic-algorithm")
   n = config["n"]
   d = config["d"]
   seed = config["seeds"][0]

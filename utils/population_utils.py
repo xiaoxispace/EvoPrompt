@@ -1,5 +1,6 @@
 import copy
 import random
+import torch
 
 from tqdm import tqdm
 
@@ -28,3 +29,16 @@ def evaluate_population(population, fitness_func):
       max_f = f
 
   return max_f, best_individual, fitness_scores
+
+
+def create_population_tensor(n, d, genes, device='cuda'):
+    """Generate an (n, d) population by uniformly sampling genes."""
+    indices = torch.randint(
+        len(genes),
+        (n, d),
+        device=device,
+        requires_grad=False
+    )
+    population = genes[indices]
+    population.requires_grad_(False)
+    return population

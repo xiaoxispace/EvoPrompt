@@ -53,8 +53,8 @@ def genetic_algorithm(n, d, num_of_gen, genes, fitness_func):
   return population
 
 
-def select_tensor(population):
-  sorted_pop = population[population[:, -1].argsort(descending=True)]
+def select_tensor(scored_population):
+  sorted_pop = scored_population[scored_population[:, -1].argsort(descending=True)]
   return sorted_pop
 
 

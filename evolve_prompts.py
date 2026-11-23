@@ -6,6 +6,7 @@ import torch
 from pathlib import Path
 
 from constants import MODEL_PATH, CONFIG_PATH
+from fitness import get_population_fitness_func
 from genetic_algorithm import genetic_algorithm_tensor, genetic_algorithm
 from utils.inference_utils import generate, generate_tensor
 from utils.utils import set_seed, proportion_of_nonspace_symbols, prepare_model, load_config, store_output
@@ -40,19 +41,7 @@ def evolve_prompts(model, tokenizer, config, output_path, n, d, gen, genes):
 
 
 def evolve_prompts_tensor(model, tokenizer, config, output_path, n, d, gen, genes, device='cuda'):
-  def population_fitness(population, scored_population=None):
-    n, D = population.shape
-    d = (D-1) // 4  # the prompt size
-    generate_tensor(model, population, start=d, length=3*d)  # population[:, d:4*d] are modified in-place
-    # create a separate tensor for storing fitness scores in float tensor
-    if scored_population is None:
-      scored_population = population.clone().to(torch.float32)
-
-    for i in range(n):
-      output_token_ids = population[i, d:4*d]
-      output_text = tokenizer.decode(output_token_ids.tolist())
-      scored_population[i, -1] = proportion_of_nonspace_symbols(output_text)
-    return scored_population
+  population_fitness = get_population_fitness_func(model, tokenizer)
   scored_population = genetic_algorithm_tensor(n, d, gen, genes, population_fitness, device=device)
 
   i_with_max_f = int(torch.argmax(scored_population[:, -1]).item())

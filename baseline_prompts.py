@@ -6,14 +6,15 @@ import torch
 from pathlib import Path
 
 from constants import CONFIG_PATH, MODEL_PATH
-from utils.inference_utils import generate
-from utils.population_utils import evaluate_population
+from fitness import get_population_fitness_func
+from utils.population_utils import create_population_tensor
 from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols, load_config, load_text, store_output
 
 
 if __name__ == "__main__":
   model, tokenizer, config = prepare_model(MODEL_PATH)
   device = 'cuda' if torch.cuda.is_available() else 'cpu'
+  model.to(device)
   output_path = Path("outputs/baseline")
 
   config = load_config(CONFIG_PATH, "baseline")
@@ -29,32 +30,39 @@ if __name__ == "__main__":
 
   n = config["n"]
   d = config["d"]
+  D = 4 * d + 1  # total dimension of the population tensor
   seed = config["seeds"][0]
   output = copy.deepcopy(config)
+  genes = torch.tensor(list(tokenizer.vocab_to_ind.values()), device=device)
   set_seed(seed)
 
-  def fitness_func(individual):
-    output_token_ids = generate(model, individual, length = 3*d, device=device)
-    output_text = tokenizer.decode(output_token_ids)
-    return proportion_of_nonspace_symbols(output_text)
-
   print("Config: ", json.dumps(config, indent=2))
-  max_f = 0
-  best_prompt_tokens = []
-  population = []
+  # Sample text tokens
+  sampled_text_tokens = []
   for _ in range(n):
     s = random.randint(0, text_length - d)
-    population.append(tokenizer.encode(text[s: s+d]))
-  max_f, best_prompt_tokens, fitness_scores = evaluate_population(population, fitness_func)
+    sampled_text_tokens.append(tokenizer.encode(text[s: s+d]))
+  sampled_text_tokens = torch.tensor(sampled_text_tokens, device=device)
 
-  score_tensor = torch.tensor(fitness_scores)
-  output["max-f"] = max_f
-  output["average-f"] = torch.mean(score_tensor).item()
-  output["median-f"] = torch.median(score_tensor).item()
-  output["std-f"] = torch.std(score_tensor).item()
-  output["resampled-fitness-scores"] = fitness_scores
+  # Evaluate the text population as the baseline
+  population = create_population_tensor(n, D, genes=genes, device=device)
+  population[:, :d] = sampled_text_tokens
+  population_fitness = get_population_fitness_func(model, tokenizer)
+  scored_population = population_fitness(population)
+
+  # Record the results from the baseline
+  i_with_max_f = int(torch.argmax(scored_population[:, -1]).item())
+  best_fit_prompt = tokenizer.decode(scored_population[i_with_max_f, :d].to(torch.int64).tolist())
+  best_fit_prompt_output = tokenizer.decode(scored_population[i_with_max_f, d:4*d].to(torch.int64).tolist())
+  output = copy.deepcopy(config)
+  output["average-f"] = torch.mean(scored_population[:, -1]).item()
+  output["median-f"] = torch.median(scored_population[:, -1]).item()
+  output["std-f"] = torch.std(scored_population[:, -1]).item()
+  output["max-f"] = scored_population[i_with_max_f, -1].item()
+  output["fitness-scores"] = scored_population[:, -1].tolist()
   output["fitness-function"] = proportion_of_nonspace_symbols.__name__
-  output["best-fit-prompt"] = tokenizer.decode(best_prompt_tokens)
-  output["resampled-best-fit-prompt-output"] = tokenizer.decode(generate(model, best_prompt_tokens, length = 3*d, device=device))
+  output["best-fit-prompt"] = best_fit_prompt
+  output["best-fit-prompt-output"] = best_fit_prompt_output
+  output["device"] = device
 
   store_output(output, output_path / f"n{n}-d{d}.json")

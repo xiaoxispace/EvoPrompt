@@ -54,3 +54,13 @@ def generate(model, token_indx, length=1000, device='cpu', decoding_strategy_nam
       new_inputs[:, s+1] = item
 
   return generated_token_index
+
+
+def generate_tensor(model, token_tensors, start, length=1000):
+  """Generate (in-place) the tensor of output token indices given a starting index and the batched prompts. """
+  with torch.no_grad():
+    for s in range(start, start + length):
+      output = model(token_tensors[:, 0: s], token_tensors[:, 0: s]) # (B, T, VOCAB)
+      output = output[:, -1, :] # (B, VOCAB)
+      output = multinomial_decoding(output).squeeze(-1) # (B, 1) -> (B,)
+      token_tensors[:, s] = output

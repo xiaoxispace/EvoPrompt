@@ -7,7 +7,6 @@ from pathlib import Path
 
 from constants import CONFIG_PATH, MODEL_PATH
 from fitness import get_population_fitness_func
-from utils.inference_utils import generate_tensor
 from utils.population_utils import create_population_tensor
 from utils.utils import set_seed, prepare_model, proportion_of_nonspace_symbols, load_config, load_text, store_output
 

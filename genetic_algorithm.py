@@ -150,7 +150,7 @@ def genetic_algorithm_tensor(n, d, num_of_gen, genes, population_fitness_func, d
       mutate_tensor(scored_population, genes)
 
       # iterate to the next generation
-      population = scored_population.to(torch.int64)
+      population[:, 0:d] = scored_population.to(torch.int64)[:, 0:d]
       scored_population = population_fitness_func(population, scored_population)  # operate on the existing scored_population to update fitness scores
 
       # log fitness statistics to wandb

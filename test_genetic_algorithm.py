@@ -107,7 +107,7 @@ def test_mutate_tensor(deterministic_result):
   target_mutations = torch.sum((mutated_individuals < 0)[0]).item()  # the num of mutations of the first mutated individual
 
   assert len(mutated_individuals) == 4  # based on deterministic results: exactly 4 individuals should be mutated
-  assert torch.all((mutated_individuals<0).count_nonzero(dim=1) == target_mutations - 1)  # each mutated individual should have the exact same number of mutations
+  assert torch.all((mutated_individuals<0).count_nonzero(dim=1) == target_mutations)  # each mutated individual should have the exact same number of mutations
   assert torch.all(scored_population[:, d:] == original[:, d:])  # the outputs and scores are not mutated
 
 
